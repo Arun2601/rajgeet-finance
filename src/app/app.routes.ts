@@ -17,6 +17,10 @@ export const routes: Routes = [
       {
         path: 'how-it-works',
         loadComponent: () => import('./pages/how-it-works/how-it-works.component').then(m => m.HowItWorksComponent)
+      },
+      {
+        path: 'emi-calculator',
+        loadComponent: () => import('./pages/emi-calculator/emi-calculator.component').then(m => m.EmiCalculatorComponent)
       }
     ]
   },

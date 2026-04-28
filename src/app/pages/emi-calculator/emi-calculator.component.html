@@ -1,0 +1,88 @@
+<div class="emi-calculator-container">
+  <div class="page-header">
+    <h1>EMI Calculator</h1>
+    <p>Plan your loan with our easy-to-use EMI calculator.</p>
+  </div>
+
+  <div class="calculator-card">
+    <div class="calculator-inputs">
+      <!-- Loan Amount -->
+      <div class="input-group">
+        <div class="input-header">
+          <label>Loan Amount (₹)</label>
+          <div class="input-value-wrapper">
+            <span class="currency-symbol">₹</span>
+            <input type="number" [(ngModel)]="loanAmount" (ngModelChange)="calculateEMI()" min="10000" max="10000000" step="10000" class="number-input" />
+          </div>
+        </div>
+        <input type="range" [min]="10000" [max]="10000000" [step]="10000" [value]="loanAmount" (input)="onAmountChange($event)" class="range-slider">
+        <div class="range-labels">
+          <span>10K</span>
+          <span>1Cr</span>
+        </div>
+      </div>
+
+      <!-- Interest Rate -->
+      <div class="input-group">
+        <div class="input-header">
+          <label>Interest Rate (p.a.)</label>
+          <div class="input-value-wrapper">
+            <input type="number" [(ngModel)]="interestRate" (ngModelChange)="calculateEMI()" min="1" max="30" step="0.1" class="number-input" />
+            <span class="percentage-symbol">%</span>
+          </div>
+        </div>
+        <input type="range" [min]="1" [max]="30" [step]="0.1" [value]="interestRate" (input)="onRateChange($event)" class="range-slider">
+        <div class="range-labels">
+          <span>1%</span>
+          <span>30%</span>
+        </div>
+      </div>
+
+      <!-- Loan Tenure -->
+      <div class="input-group">
+        <div class="input-header">
+          <label>Loan Tenure (Months)</label>
+          <div class="input-value-wrapper">
+            <input type="number" [(ngModel)]="tenure" (ngModelChange)="calculateEMI()" min="1" max="360" step="1" class="number-input" />
+            <span class="month-symbol">Mo</span>
+          </div>
+        </div>
+        <input type="range" [min]="1" [max]="360" [step]="1" [value]="tenure" (input)="onTenureChange($event)" class="range-slider">
+        <div class="range-labels">
+          <span>1 Mo</span>
+          <span>360 Mo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="calculator-results">
+      <div class="result-header">
+        <h3>Loan Summary</h3>
+      </div>
+      
+      <div class="result-item primary">
+        <span>Monthly EMI</span>
+        <h2>₹{{ emi | number:'1.0-0' }}</h2>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-item">
+        <span>Principal Amount</span>
+        <h4>₹{{ loanAmount | number:'1.0-0' }}</h4>
+      </div>
+
+      <div class="result-item">
+        <span>Total Interest</span>
+        <h4>₹{{ totalInterest | number:'1.0-0' }}</h4>
+      </div>
+
+      <div class="result-item highlight">
+        <span>Total Amount Payable</span>
+        <h4>₹{{ totalAmount | number:'1.0-0' }}</h4>
+      </div>
+
+      <button class="btn-apply-now" routerLink="/apply">Apply for Loan Now</button>
+    </div>
+  </div>
+</div>
