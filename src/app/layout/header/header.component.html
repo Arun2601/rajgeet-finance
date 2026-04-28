@@ -1,0 +1,28 @@
+<header class="main-header">
+  <div class="logo-container" routerLink="/">
+    <!-- Simple CSS logo instead of image to start -->
+    <div class="logo-icon">
+      <span class="rupee-symbol">₹</span>
+      <span class="r-letter">R</span>
+    </div>
+    <div class="logo-text">
+      <h2>Rajgeet</h2>
+      <span class="subtitle">FINANCE</span>
+    </div>
+  </div>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+      <li><a routerLink="/how-it-works" routerLinkActive="active">How It Works</a></li>
+      <li><a routerLink="/loan-products" routerLinkActive="active">Loan Products</a></li>
+      <li><a routerLink="/emi-calculator" routerLinkActive="active">EMI Calculator</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About Us</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <div class="header-actions">
+    <button class="btn-primary">APPLY NOW</button>
+  </div>
+</header>

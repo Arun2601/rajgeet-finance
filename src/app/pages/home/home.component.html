@@ -1,0 +1,99 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="tagline">INSTANT PERSONAL LOAN</div>
+      <h1 class="hero-title">Get Instant Loan <br>up to <span>₹50,000</span></h1>
+      <p class="hero-subtitle">Fast approval, minimal documents<br>and money in your bank account.</p>
+      
+      <div class="hero-actions">
+        <button class="btn-primary">APPLY NOW</button>
+        <button class="btn-secondary">CHECK ELIGIBILITY</button>
+      </div>
+      
+      <div class="hero-features">
+        <div class="feature-item">
+          <span class="icon">✓</span> 100% Online<br><small>Paperless Process</small>
+        </div>
+        <div class="feature-item">
+          <span class="icon">⏱</span> Quick Approval<br><small>In Just Minutes</small>
+        </div>
+        <div class="feature-item">
+          <span class="icon">🔒</span> Safe & Secure<br><small>Your Data is Safe</small>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Hero Image Area (Mocking the guy with phone) -->
+    <div class="hero-image-area">
+      <!-- We will just use a generic placeholder or CSS shape for now -->
+      <div class="person-placeholder"></div>
+
+      <!-- EMI Calculator Card overlapping the image -->
+      <div class="emi-calculator-card">
+        <h3>Check Your Loan Eligibility</h3>
+        
+        <div class="form-group">
+          <label>Enter loan amount</label>
+          <div class="input-with-symbol">
+            <span>₹</span>
+            <input type="number" [(ngModel)]="loanAmount" (change)="calculateEmi()">
+          </div>
+          <input type="range" min="5000" max="50000" step="1000" [(ngModel)]="loanAmount" (input)="onAmountChange($event)">
+          <div class="range-labels">
+            <span>₹5,000</span>
+            <span>₹50,000</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Select Tenure</label>
+          <select [(ngModel)]="tenure" (change)="calculateEmi()">
+            <option value="3">3 Months</option>
+            <option value="6">6 Months</option>
+            <option value="9">9 Months</option>
+            <option value="12">12 Months</option>
+          </select>
+        </div>
+
+        <div class="emi-result">
+          <label>Estimated EMI</label>
+          <div class="emi-amount">₹{{estimatedEmi}} <span>/ month</span></div>
+        </div>
+
+        <button class="btn-green">CHECK ELIGIBILITY</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works-section">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>Get your loan in 4 simple steps</p>
+    </div>
+    
+    <div class="steps-container">
+      <div class="step-item">
+        <div class="step-icon">1</div>
+        <h4>Apply Online</h4>
+        <p>Fill simple application form</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">2</div>
+        <h4>Upload Documents</h4>
+        <p>Upload KYC & income proof</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">3</div>
+        <h4>Get Approved</h4>
+        <p>Instant verification & approval</p>
+      </div>
+      <div class="step-item">
+        <div class="step-icon">4</div>
+        <h4>Receive Money</h4>
+        <p>Money in your bank account</p>
+      </div>
+    </div>
+  </section>
+</div>

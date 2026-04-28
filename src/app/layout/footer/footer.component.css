@@ -1,0 +1,12 @@
+.main-footer {
+  background-color: var(--primary-blue);
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 14px;
+}
