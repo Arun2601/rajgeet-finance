@@ -1,0 +1,142 @@
+<div class="apply-container">
+  
+  <!-- Step 1: Mobile Number -->
+  <div class="step-card step-1" *ngIf="currentStep === 1">
+    <div class="text-center mb-40">
+      <h2 class="hero-text">Personal Loans Made Simple & Transparent with <span class="brand-name">Rajgeet Finance</span></h2>
+      <h3 class="sub-hero-text">Apply for personal loans through our trusted RBI-registered lending partners</h3>
+      <div class="features-row">
+        <span>Transparent Pricing</span>
+        <span class="divider">|</span>
+        <span>Digital Process</span>
+        <span class="divider">|</span>
+        <span>Trusted Lending Partners</span>
+      </div>
+    </div>
+
+    <div class="mobile-input-wrapper">
+      <div class="input-with-button">
+        <input type="tel" class="mobile-input" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" maxlength="10">
+        <button class="btn-apply-attached" (click)="sendOtp()">Apply Now</button>
+      </div>
+      
+      <div class="tc-checkbox-wrapper">
+        <input type="checkbox" id="tc1" [(ngModel)]="tcAcceptedStep1">
+        <label for="tc1">By clicking this, I agree with the following <a href="#">Terms and Conditions</a></label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 2: Verify Mobile / OTP -->
+  <div class="step-card step-2" *ngIf="currentStep === 2">
+    <div class="text-center mb-30">
+      <h2 class="step-title">Verify Mobile Number</h2>
+      <p class="step-subtitle">A 6-digit code has been sent to your mobile number<br>(+91{{mobileNumber}})</p>
+    </div>
+
+    <div class="otp-inputs">
+      <input type="text" maxlength="1" [(ngModel)]="otp1" id="otp1" (input)="autoFocusNext($event, 'otp2')">
+      <input type="text" maxlength="1" [(ngModel)]="otp2" id="otp2" (input)="autoFocusNext($event, 'otp3')">
+      <input type="text" maxlength="1" [(ngModel)]="otp3" id="otp3" (input)="autoFocusNext($event, 'otp4')">
+      <input type="text" maxlength="1" [(ngModel)]="otp4" id="otp4" (input)="autoFocusNext($event, 'otp5')">
+      <input type="text" maxlength="1" [(ngModel)]="otp5" id="otp5" (input)="autoFocusNext($event, 'otp6')">
+      <input type="text" maxlength="1" [(ngModel)]="otp6" id="otp6">
+    </div>
+
+    <div class="timer-text">
+      {{formattedTimer}}
+    </div>
+
+    <div class="text-center mt-30">
+      <button class="btn-primary" (click)="verifyOtp()">Submit</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Basic Details -->
+  <div class="step-card step-3" *ngIf="currentStep === 3">
+    <div class="text-center mb-30">
+      <h2 class="step-title">Submit Basic Details</h2>
+      <p class="security-text">Your Data is Completely Secure with us</p>
+    </div>
+
+    <div class="form-group">
+      <label>Pin Code</label>
+      <input type="text" class="form-control" placeholder="Enter your pin code" [(ngModel)]="pinCode">
+    </div>
+
+    <div class="form-group">
+      <label>City</label>
+      <input type="text" class="form-control" [(ngModel)]="city">
+    </div>
+
+    <div class="form-group">
+      <label>Employment Type</label>
+      <div class="toggle-group">
+        <button class="toggle-btn" [class.active]="employmentType === 'Salaried'" (click)="setEmploymentType('Salaried')">Salaried</button>
+        <button class="toggle-btn" [class.active]="employmentType === 'Self-Employed'" (click)="setEmploymentType('Self-Employed')">Self-Employed</button>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Monthly Income</label>
+      <input type="text" class="form-control" placeholder="Enter your monthly income" [(ngModel)]="monthlyIncome">
+    </div>
+
+    <div class="form-group">
+      <label>Income Received In</label>
+      <div class="toggle-group triple">
+        <button class="toggle-btn" [class.active]="incomeReceivedIn === 'Account'" (click)="setIncomeReceived('Account')">Account</button>
+        <button class="toggle-btn" [class.active]="incomeReceivedIn === 'Cash'" (click)="setIncomeReceived('Cash')">Cash</button>
+        <button class="toggle-btn" [class.active]="incomeReceivedIn === 'Cheque'" (click)="setIncomeReceived('Cheque')">Cheque</button>
+      </div>
+    </div>
+
+    <button class="btn-green full-width mt-20" (click)="submitBasicDetails()">Continue</button>
+  </div>
+
+  <!-- Step 4: Complete KYC -->
+  <div class="step-card step-4" *ngIf="currentStep === 4">
+    <div class="text-center mb-20">
+      <h2 class="step-title">Complete your KYC</h2>
+      <p class="security-text">Your Data is Completely Secure with us</p>
+    </div>
+
+    <div class="pan-card-illustration">
+      <!-- CSS placeholder for PAN Card -->
+      <div class="pan-mock">
+        <div class="pan-header">आयकर विभाग | INCOME TAX DEPARTMENT</div>
+        <div class="pan-body">
+          <div class="pan-lines"></div>
+          <div class="pan-photo">👤</div>
+        </div>
+      </div>
+      <p class="pan-example">Example PAN Number: XXXXX0000X</p>
+    </div>
+
+    <div class="form-group">
+      <label>Enter PAN Number</label>
+      <input type="text" class="form-control text-uppercase" placeholder="Enter PAN Number (e.g., AAAPA1234A)" [(ngModel)]="panNumber">
+    </div>
+
+    <div class="form-group">
+      <label>Name as per PAN Card</label>
+      <input type="text" class="form-control" placeholder="Enter Name as per PAN Card" [(ngModel)]="panName">
+    </div>
+
+    <div class="form-group">
+      <label>Date of Birth (as per PAN Card)</label>
+      <div class="input-with-icon">
+        <input type="text" class="form-control" placeholder="DD/MM/YYYY" [(ngModel)]="dob">
+        <span class="calendar-icon">📅</span>
+      </div>
+    </div>
+
+    <div class="tc-checkbox-wrapper mt-20 mb-20">
+      <input type="checkbox" id="tc4" [(ngModel)]="tcAcceptedStep4">
+      <label for="tc4">I Accept the <a href="#">Terms & Conditions</a></label>
+    </div>
+
+    <button class="btn-green full-width" (click)="submitKyc()">Continue</button>
+  </div>
+
+</div>
