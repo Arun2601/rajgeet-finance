@@ -17,21 +17,21 @@ export class ApplyComponent implements OnInit {
   tcAcceptedStep1: boolean = true;
 
   // Step 2: OTP
-  otp1: string = '000000';
-  otp2: string = '';
-  otp3: string = '';
-  otp4: string = '';
-  otp5: string = '';
-  otp6: string = '';
+  otp1: string = '1';
+  otp2: string = '2';
+  otp3: string = '3';
+  otp4: string = '4';
+  otp5: string = '5';
+  otp6: string = '6';
   timerValue: number = 48;
   timerInterval: any;
 
   // Step 3: Basic Details
-  pinCode: string = '';
-  city: string = '';
-  employmentType: string = ''; // 'Salaried' | 'Self-Employed'
-  monthlyIncome: string = '';
-  incomeReceivedIn: string = ''; // 'Account' | 'Cash' | 'Cheque'
+  pinCode: string = '123401';
+  city: string = 'Rewari';
+  employmentType: string = 'Salaried'; // 'Salaried' | 'Self-Employed'
+  monthlyIncome: string = '100000';
+  incomeReceivedIn: string = 'Account'; // 'Account' | 'Cash' | 'Cheque'
 
   // Step 4: KYC
   panNumber: string = '';

@@ -1,0 +1,8 @@
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/service/OtpService.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/RajgeetBackendApplication.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/dto/OtpVerifyDto.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/controller/AuthController.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/model/OtpDetails.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/service/SmsService.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/dto/ApiResponseDto.java
+/Users/arunyadav/loan-app /rajgeet-finance/backend/src/main/java/com/rajgeet/finance/backend/dto/OtpRequestDto.java
